@@ -24,8 +24,4 @@ public class Lista {
     @Column(nullable = false, unique = true)
     private String img_presidente;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "id_mesa")
-    private Mesa mesa;
-
 }

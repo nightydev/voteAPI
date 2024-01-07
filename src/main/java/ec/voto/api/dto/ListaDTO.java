@@ -19,6 +19,4 @@ public class ListaDTO {
 
     private String img_presidente;
 
-    private MesaDTO mesa;
-
 }

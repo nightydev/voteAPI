@@ -33,4 +33,12 @@ public class MesaService extends GenericCrudServiceImpl<Mesa, MesaDTO> {
         return modelMapper.map(domain, MesaDTO.class);
     }
 
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    public Optional<MesaDTO> findById(Long id) {
+        Optional<Mesa> mesa = repository.findById(id);
+        return mesa.map(this::mapToDto);
+    }
 }

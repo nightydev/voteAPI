@@ -2,6 +2,8 @@ package ec.voto.api.service;
 
 import java.util.Optional;
 
+import ec.voto.api.domain.Mesa;
+import ec.voto.api.dto.MesaDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,4 +35,12 @@ public class CursoService extends GenericCrudServiceImpl<Curso, CursoDTO> {
         return modelMapper.map(domain, CursoDTO.class);
     }
 
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    public Optional<CursoDTO> findById(Long id) {
+        Optional<Curso> curso = repository.findById(id);
+        return curso.map(this::mapToDto);
+    }
 }
